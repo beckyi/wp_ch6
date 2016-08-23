@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+var btnEle =  document.getElementById("myBtn");
+console.log(btnEle);
+
+btnEle.onclick = function(){
+	var btnEle = this;
+	btnEle.innerText = "<em>clicked</em>";
+	console.log("clicked!");
+	var pElement = document.getElementById("demo");
+	
+	var now = new Date();
+	pElement.innerHTML = (now.getYear() + 1900) +"년 " + (now.getMonth+1)+"월"+
+						 now.getDate() + "일" + now.getHours() + ":" + now.getMinute();
+}
+
+var diplayDate = function(){
+	var btnEle = this;
+	btnEle.innerText = "<em>clicked</em>";
+	console.log("clicked!");
+	var pElement = document.getElementById("demo");
+	
+	var now = new Date();
+	pElement.innerHTML = (now.getYear() + 1900) +"년 " + (now.getMonth()+1)+"월"+
+						  now.getDate()+"일"+now.getHours()+":"+now.getMinutes();
+}
+
+var clearDate = function(){
+	var btnEle = this;
+	//btnEle =;
+	
+	var pElement = document.getElementById("demo");
+	pElement.innerHTML = "";
+
+}
+
+window.onload = function(){
+	console.log("onload");
+	var btnEle = document.getElementById("myBtn");
+	btnEle.onclick = displayDate;
+	btnEle.onmouseover = displayDate; 
+	btnEle.onmouseout = clearDate;
+}
+//IE에서만 지원
+window.onunload = function(){
+	alert("onunload");
+}
+</script>
+
+</head>
+
+<body onload = "onload()"; onunload = "onunload()">
+<p>버튼을 클릭하면 <em>displayDate()</em> 함수가 실행되었습니다.</p>
+
+<button id="myBtn">Try it</button>
+<p id="demo">2016년08월22일11:11:11</p>
+</body>
+</html>

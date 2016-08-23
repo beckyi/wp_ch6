@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+*	{margin:0; padding:0;}
+body	{
+	font-family:"맑은고딕",돋음,굴림;
+	font-size:"0.75em";
+	font-color:"#333";
+}
+#my-div {
+	background-color:#D94A38;
+	width:90px;
+	height:20px;
+	padding:40px;
+}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var divElement = document.getElementById("my-div");
+		//페이지 이동이 아닌 내부적으로 변화하는 것
+	divElement.onmousedown = function(){
+		console.log("mousedown");
+		this.style.backgroundColor="#0f0";
+		this.style.color="#fff";
+		this.innerText = "mousedown";
+	}
+	divElement.onmouseup = function(){
+		console.log("mouseup");
+		this.style.backgroundColor="#D94A38";
+		this.style.color="#333";
+		this.innerText = "클릭하세요";
+	}
+	divElement.onclick = function(){
+		console.log("click");
+	}
+	divElement.ondblclick = function(){
+		console.log("ondblclick");
+	}
+}
+</script>
+</head>
+<body>
+<div id="my-div">
+	클릭하세요!
+</div>
+</body>
+</html>

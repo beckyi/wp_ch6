@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/*Array 내장 객체 생성*/
+//생성자
+var a1 = new Arrray();
+console.log(a1);
+
+/*자바와 다르게 자바스크립트는 배열 크기를 정해도 가변적으로 리스트처럼 늘어날 수 있음.*/
+var a2 = new Array(10);
+a2[20] = "hello";
+console.log(a2);
+ 
+var a3 = new Array(1,"hello",true);
+console.log(a3);
+
+var f = function(){
+ console.log("hello!!");
+}
+
+var a4 = new Array(1,"Hello,",true,function(){
+ console.log("hello!");},{name: "최재은", title: "강사"});
+ 
+console.log(a3);
+a3[3]();
+console.log(a3[4].name);
+
+var a5 = [1,"Hello",true,function(){
+	console.log("world");
+},{name:"최재은",title:"학생"}];
+console.log(a5);
+
+var init = function(){
+	document.body.onmouseover = function(){
+		console.log("onmouseover");
+	}
+}
+</script>
+</head>
+<body onload="init();">
+<h1>hello</h1>
+<p>
+	hello<br>	
+	hello<br>
+	hello<br>
+	hello<br>
+	hello<br>
+</p>
+</body>
+</html>

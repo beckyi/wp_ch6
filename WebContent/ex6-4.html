@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/* function을 이용한 여러 객체 생성 방법 (prototype 기반의 객체 생성)*/
+var employee = function(name, title){
+	this.name = name;
+	this.title = title;
+	this.info = function(){
+		console.log(this.name + ":" + this.title);
+	}
+}
+
+/*객체를 생성하기 위한 생성자로 이용 가능*/
+var e1 = new employee("둘리","백수");
+e1.info();
+
+var e2 = new employee("마이콜","가수");
+e2.info();
+
+var e3 = new employee("도우넛","백수2");
+e3.info();
+
+var e4 = new employee("또치","백수3");
+e4.info();
+
+var employee2 = function(name, title){
+	this.name = name;
+	this.title = title;
+}
+
+employee2.prototype.info = function(){
+	console.log(this.name + ":" + this.title);
+}
+/*재정의할 때까지 프로토타입 내 정의를 속성, 함수 공유함*/
+employee2.prototype.boss="공실이";
+
+var e1 = new employee2("고길동","회사원");
+e1.info();
+
+var e2 = new employee2("무민","연예인");
+
+/*재정의*/
+e2.boss = "최재은";
+e2.info = function() {
+	console.log(this.boss + ":" + this.name + ":" + this.title);
+}
+
+console.log(e1.boss);
+e2.info();
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
